@@ -1,0 +1,193 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./styles.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon.svg"
+    />
+    <script defer src="./scripts.js"></script>
+    <title>Kanban Task Management</title>
+  </head>
+  <script>
+    //ask the user for the title and description of task 1
+
+    /*const taskTitle = prompt("Enter Task 1 title:");
+    const task1Description = prompt("Enter Task 1 description:");
+
+    //ask for the status of task 1 and convert it to lowercase
+
+    let task1Status = prompt(
+      "enter task 1 status (todo, doing, done):",
+    ).toLowerCase();
+    // keep asking for the status until the user enters a valid status for task 1
+
+    while (
+      task1Status !== "todo" &&
+      task1Status !== "doing" &&
+      task1Status !== "done"
+    ) {
+      alert("Invalid status. Please enter 'todo', 'doing', or 'done'.");
+      task1Status = prompt(
+        "enter task 1 status (todo, doing, done):",
+      ).toLowerCase();
+    } // ask the user for the title and description of task 2
+
+    const task2Title = prompt("Enter Task 2 title:");
+    const task2Description = prompt("Enter Task 2 description:");
+
+    //ask for the status of task 2 and convert it to lowercase
+
+    let task2Status = prompt(
+      "enter task 2 status (todo, doing, done):",
+    ).toLowerCase();
+
+    // keep asking for the status until the user enters a valid status for task 2
+
+    while (
+      task2Status !== "todo" &&
+      task2Status !== "doing" &&
+      task2Status !== "done"
+    ) {
+      alert("Invalid status. Please enter 'todo', 'doing', or 'done'.");
+      task2Status = prompt(
+        "enter task 2 status (todo, doing, done):",
+      ).toLowerCase();
+    } //check if task 1 is done and log it to the console
+
+    if (task1Status === "done") {
+      console.log("Title: " + task1Title + "; status: " + task1Status);
+    } //check if task 2 is done and log it to the console
+    if (task2Status === "done") {
+      console.log("Title: " + task2Title + "; status: " + task2Status);
+    } //if neither task 1 nor task 2 is done,show a motivational message
+
+    if (task1Status !== "done" && task2Status !== "done") {
+      console.log("no tasks completed,let's get to work! ");
+    }*/
+    // Array of tasks
+    const tasks = [
+      {
+        id: 1,
+        title: "Gym",
+        description: "Work those muscles",
+        status: "todo",
+      },
+      {
+        id: 2,
+        title: "Study",
+        description: "Work those brains",
+        status: "doing",
+      },
+      { id: 3, title: "Sleep", description: "Rest that bod", status: "done" },
+      {
+        id: 4,
+        title: "Correct JSL02",
+        description: "Make corrections to JSL02 before attempting JSL03",
+        status: "done",
+      },
+      {
+        id: 5,
+        title: "Work on JSL03",
+        description:
+          "Read the project brief and user stories to understand the requirements, implement a solution",
+        status: "todo",
+      },
+      {
+        id: 6,
+        title: "Revise Javascript concepts",
+        description:
+          "Practice JS concepts to make sure I understand the fundamentals",
+        status: "doing",
+      },
+    ];
+
+    // Filter completed tasks
+    const completedTasks = tasks.filter((task) => task.status === "done");
+
+    // Print to console EXACTLY like your screenshot
+    console.log("All tasks:", tasks);
+    console.log("Completed tasks:", completedTasks);
+  </script>
+
+  <body>
+    <!-- Navigation Sidebar: Contains the logo, navigation links for boards, and theme toggle. -->
+    <nav class="side-bar" id="side-bar-div">
+      <div id="side-logo-div">
+        <img id="logo" src="./assets/logo-light.svg" alt="logo-light" />
+      </div>
+
+      <div class="boards-nav-links-div" id="boards-nav-links-div">
+        <h4 id="headline-sidepanel">ALL BOARDS (1)</h4>
+        <button class="board-btn">Launch Career</button>
+      </div>
+    </nav>
+
+    <!-- Main Layout: Header with board title, add task button, and main content area for task columns. -->
+    <div id="layout">
+      <header id="header" class="sticky-header">
+        <div class="header-name-div">
+          <img
+            src="./assets/favicon.svg"
+            alt="logo-mobile"
+            class="logo-mobile"
+          />
+          <h2 class="header-board-name" id="header-board-name">
+            Launch Career
+          </h2>
+        </div>
+      </header>
+
+      <div class="container">
+        <main class="card-column-main">
+          <!-- Task Columns: Display tasks grouped by status (TODO, DOING, DONE). -->
+          <div class="column-div" data-status="todo">
+            <div id="todo-head-div" class="column-head-div">
+              <span class="dot" id="todo-dot"></span>
+              <h4 id="toDoText" class="columnHeader">TODO (4)</h4>
+            </div>
+            <!-- Tasks container for TODO -->
+            <div class="tasks-container">
+              <div class="task-div">Launch Epic Career 🚀</div>
+              <div class="task-div">Conquer React⚛️</div>
+              <div class="task-div">Understand Databases⚙️</div>
+              <div class="task-div">Crush Frameworks🖼️</div>
+            </div>
+          </div>
+          <!-- DOING Column -->
+          <div class="column-div" data-status="doing">
+            <div id="doing-head-div" class="column-head-div">
+              <span class="dot" id="doing-dot"></span>
+              <h4 id="doingText" class="columnHeader">DOING (2)</h4>
+            </div>
+            <!-- Tasks container for DOING -->
+            <div class="tasks-container">
+              <div class="task-div">Master JavaScript 💛</div>
+              <div class="task-div">Never Give Up 🏆</div>
+            </div>
+          </div>
+          <!-- DONE Column -->
+          <div class="column-div" data-status="done">
+            <div id="done-head-div" class="column-head-div">
+              <span class="dot" id="done-dot"></span>
+              <h4 id="doneText" class="columnHeader">DONE (2)</h4>
+            </div>
+            <!-- Tasks container for DONE -->
+            <div class="tasks-container">
+              <div class="task-div">Explore ES6 Features 🚀</div>
+              <div class="task-div">Have fun 🥳</div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
