@@ -18,6 +18,7 @@ const initialTasks = [
     status: "done",
   },
 ];
+
 //addTask() function
 //----------------------------
 function addTask() {
@@ -44,29 +45,25 @@ function addTask() {
   initialTasks.push(newTask);
 }
 
-// -------------------------------------
-// STEP 4 – getCompletedTasks()
+//getCompletedTasks() function
 // -------------------------------------
 function getCompletedTasks() {
   return initialTasks.filter((task) => task.status === "done");
 }
 
-// -------------------------------------
-// STEP 1 – Keep Adding Tasks Until There Are 6
+///keep adding tasks until we have 6 tasks in total
 // -------------------------------------
 while (initialTasks.length < 6) {
   addTask();
 }
 
-// -------------------------------------
-// STEP 2 – Alert the user when board is full
+// alert user when task board is full (6 tasks)
 // -------------------------------------
 if (initialTasks.length === 6) {
-  alert("🎉 Your task board is full! (6 tasks)");
+  alert(" Your task board is full! (6 tasks)");
 }
 
-// -------------------------------------
-// STEP 5 – Display the Results in Console
+// Display all tasks and completed tasks in the console
 // -------------------------------------
 console.log("All tasks:", initialTasks);
 console.log("Completed tasks:", getCompletedTasks());
